@@ -25,6 +25,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano-db-tasks'
+require 'capistrano/puma'
 # require 'capistrano/sidekiq'
 # require 'capistrano/passenger'
 

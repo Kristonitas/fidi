@@ -1,6 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
+server 'fidi', port: 3000, roles: [:web, :app, :db], primary: true
+
 set :application, 'fidi'
 set :repo_url, 'git@github.com:Kristonitas/fidi.git'
 
@@ -13,6 +15,9 @@ set :deploy_to, '/var/www/fidi'
 # Default value for :scm is :git
 set :scm, :git
 
+set :puma_threads,    [4, 16]
+set :puma_workers,    0
+
 set :user, "deployer"
 
 # Default value for :format is :pretty
@@ -22,7 +27,9 @@ set :user, "deployer"
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
+
+set :stage, :production
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml')

@@ -82,6 +82,9 @@ GEM
       capistrano (~> 3.0)
       sshkit (~> 1.2)
     capistrano-stats (1.1.1)
+    capistrano3-puma (0.8.4)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
@@ -247,6 +250,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.1)
   capistrano-rvm
   capistrano-sidekiq!
+  capistrano3-puma
   coffee-rails (~> 4.1.0)
   jasminerice!
   jbuilder (~> 2.0)

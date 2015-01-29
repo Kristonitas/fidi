@@ -55,5 +55,6 @@ group :development, :test do
   gem 'capistrano-bundler',  require: false
   gem 'capistrano-db-tasks', github: 'sgruhier/capistrano-db-tasks', require: false
   gem 'capistrano-sidekiq',  github: 'seuros/capistrano-sidekiq'
+  gem 'capistrano3-puma',   require: false
 end
 
