@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
-server 'fidi', port: 3000, roles: [:web, :app, :db], primary: true
+# server 'fidi', port: 3000, roles: [:web, :app, :db], primary: true
 
 set :application, 'fidi'
 set :repo_url, 'git@github.com:Kristonitas/fidi.git'
