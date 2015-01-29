@@ -20,6 +20,8 @@ set :puma_workers,    0
 
 set :user, "deployer"
 
+set :puma_bind, "unix:///tmp/sockets/#{fetch(:application)}-puma.sock"
+
 # Default value for :format is :pretty
 # set :format, :pretty
 
