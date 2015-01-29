@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'puma'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -41,5 +43,15 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'capistrano-rails', '~> 1.1.1'
+
+  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  gem 'rspec-rails', '< 3.0'
+  gem 'pry-rails'
+  gem 'rvm1-capistrano3',    require: false
+  gem 'capistrano-bundler',  require: false
+  gem 'capistrano-db-tasks', github: 'sgruhier/capistrano-db-tasks', require: false
+  gem 'capistrano-sidekiq',  github: 'seuros/capistrano-sidekiq'
 end
 

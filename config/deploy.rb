@@ -1,17 +1,19 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'fidi'
+set :repo_url, 'git@github.com:Kristonitas/fidi.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, '/var/www/fidi'
 
 # Default value for :scm is :git
-# set :scm, :git
+set :scm, :git
+
+set :user, "deployer"
 
 # Default value for :format is :pretty
 # set :format, :pretty
