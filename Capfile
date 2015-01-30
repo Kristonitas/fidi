@@ -27,7 +27,7 @@ require 'capistrano/rails/migrations'
 # require 'capistrano-db-tasks'
 # require 'capistrano/puma'
 # require 'capistrano/sidekiq'
-require 'capistrano/passenger'
+# require 'capistrano/passenger'
 
 # Load custom tasks from `lib/capistrano/tasks' if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
