@@ -1,21 +1,25 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
-# server 'fidi', port: 3000, roles: [:web, :app, :db], primary: true
+# server 'fidi', port: 8001, roles: [:web, :app, :db], primary: true
+
+set :rvm_type, :system
+set :rvm1_ruby_version, '2.2.0'
 
 set :repo_url, 'git@github.com:Kristonitas/fidi.git'
 set :application, 'fidi'
-set :user, "deployer"
+# set :user, "deployer"
 
 # set :puma_threads,    [4, 16]
 # set :puma_workers,    0
 
-set :pty, true
-set :stage, :production
+# set :pty, true
+# set :stage, :production
+set :linked_files, %w{config/database.yml}
 set :deploy_to, '/var/www/fidi'
 
 # Default value for :scm is :git
-set :scm, :git
+# set :scm, :git
 
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
