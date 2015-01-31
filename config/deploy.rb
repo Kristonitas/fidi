@@ -17,7 +17,7 @@ set :deploy_to, '/var/www/fidi'
 # Default value for :scm is :git
 set :scm, :git
 
-
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # set :puma_bind, "unix:///tmp/sockets/#{fetch(:application)}-puma.sock"
 
