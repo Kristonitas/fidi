@@ -88,7 +88,7 @@ test:
 #
 production:
   <<: *default
-  host: 
+  host: localhost
   database: fidi_production
   username: <%= ENV['FIDI_DATABASE_USERNAME'] %>
   password: <%= ENV['FIDI_DATABASE_PASSWORD'] %>
