@@ -17,7 +17,7 @@ set :stage, :production
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '79.98.25.158:8001', roles: %w{web app}
+server '79.98.25.158:8001', user: 'deployer', roles: %w{web app db}
 
 set :application, "fidi"
 set :rails_env, :production
