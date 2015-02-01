@@ -3,10 +3,11 @@ lock '3.3.5'
 
 # server 'fidi', port: 8001, roles: [:web, :app, :db], primary: true
 
-set :rvm_ruby_version, '2.2.0'
-
-set :repo_url, 'git@github.com:Kristonitas/fidi.git'
 set :application, 'fidi'
+set :repo_url, 'git@github.com:Kristonitas/fidi.git'
+# set :rvm_ruby_version, '2.2.0'
+
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 # set :user, "deployer"
 
 # set :puma_threads,    [4, 16]
@@ -20,7 +21,6 @@ set :deploy_to, '/var/www/fidi'
 # Default value for :scm is :git
 # set :scm, :git
 
-ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # set :puma_bind, "unix:///tmp/sockets/#{fetch(:application)}-puma.sock"
 
@@ -62,33 +62,13 @@ set :keep_releases, 5
 
 namespace :deploy do
 
-  # after :restart, :clear_cache do
-  #   on roles(:web), in: :groups, limit: 3, wait: 10 do
-  #     # Here we can do anything such as:
-  #     # within release_path do
-  #     #   execute :rake, 'cache:clear'
-  #     # end
-  #   end
-  # end
-
-  # desc 'Initial Deploy'
-  # task :initial do
-  #   on roles(:app) do
-  #     before 'deploy:restart', 'puma:start'
-  #     invoke 'deploy'
-  #   end
-  # end
-
-  # desc 'Restart application'
-  # task :restart do
-  #   on roles(:app), in: :sequence, wait: 5 do
-  #     invoke 'puma:restart'
-  #   end
-  # end
-
-  # # before :starting,     :check_revision
-  # # after  :finishing,    :compile_assets
-  # after  :finishing,    :cleanup
-  # after  :finishing,    :restart
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
+  end
 
 end

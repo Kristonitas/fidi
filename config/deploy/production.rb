@@ -8,7 +8,7 @@
 # role :web, %w{deploy@example.com}
 # role :db,  %w{deploy@example.com}
 
-set :stage, :production
+# set :stage, :production
 
 
 # Extended Server Syntax
@@ -19,8 +19,8 @@ set :stage, :production
 
 server '79.98.25.158', user: 'deployer', roles: %w{web app db}
 
-set :application, "fidi"
-set :rails_env, :production
+# set :application, "fidi"
+# set :rails_env, :production
 # set :deploy_to, "/var/www/fidi"
 
 
