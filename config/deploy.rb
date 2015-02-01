@@ -3,8 +3,7 @@ lock '3.3.5'
 
 # server 'fidi', port: 8001, roles: [:web, :app, :db], primary: true
 
-set :rvm_type, :system
-set :rvm1_ruby_version, '2.2.0'
+set :rvm_ruby_version, '2.2.0'
 
 set :repo_url, 'git@github.com:Kristonitas/fidi.git'
 set :application, 'fidi'
@@ -15,7 +14,7 @@ set :application, 'fidi'
 
 # set :pty, true
 # set :stage, :production
-set :linked_files, %w{config/database.yml}
+# set :linked_files, %w{config/database.yml}
 set :deploy_to, '/var/www/fidi'
 
 # Default value for :scm is :git

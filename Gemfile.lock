@@ -75,6 +75,8 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-passenger (0.0.1)
+      capistrano (~> 3.0)
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -140,6 +142,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    puma (2.11.0)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -252,7 +256,8 @@ DEPENDENCIES
   capistrano (~> 3.3.0)
   capistrano-bundler
   capistrano-db-tasks!
-  capistrano-rails (~> 1.1.1)
+  capistrano-passenger
+  capistrano-rails
   capistrano-rvm
   capistrano-sidekiq!
   coffee-rails (~> 4.1.0)
@@ -262,6 +267,7 @@ DEPENDENCIES
   passenger
   pg
   pry-rails
+  puma
   rails (= 4.2.0)
   rspec-rails (< 3.0)
   rvm1-capistrano3
