@@ -10,6 +10,8 @@ set :db_remote_clean, true
 
 set :skip_data_sync_confirm, false
 
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+
 set :repo_url, 'git@github.com:Kristonitas/fidi.git'
 set :application, 'fidi'
 

@@ -8,20 +8,14 @@
 # role :web, %w{deploy@example.com}
 # role :db,  %w{deploy@example.com}
 
-set :stage, :production
-
-
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
+set :stage, :production
 server '79.98.25.158', user: 'deployer', roles: %w{web app db}
-
-set :application, "fidi"
-set :rails_env, :production
-set :deploy_to, "/var/www/fidi"
 
 
 # Custom SSH Options
