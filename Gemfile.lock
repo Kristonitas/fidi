@@ -1,24 +1,9 @@
 GIT
-  remote: git://github.com/seuros/capistrano-sidekiq.git
-  revision: 77573c4ba99272226bff35a15d1126321106396f
-  specs:
-    capistrano-sidekiq (0.4.1)
-      capistrano
-      sidekiq
-
-GIT
   remote: git://github.com/sgruhier/capistrano-db-tasks.git
   revision: adedf1c4a58780cbbabbce52c0ba08e783fe57e6
   specs:
     capistrano-db-tasks (0.3)
       capistrano (>= 3.0.0)
-
-GIT
-  remote: https://github.com/bradphelan/jasminerice.git
-  revision: 091349c27343bfa728b8e5745675f9ddbb7d9699
-  specs:
-    jasminerice (0.1.0)
-      coffee-rails
 
 GEM
   remote: https://rubygems.org/
@@ -82,8 +67,6 @@ GEM
       capistrano (~> 3.0)
       sshkit (~> 1.2)
     capistrano-stats (1.1.1)
-    celluloid (0.16.0)
-      timers (~> 4.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -94,7 +77,6 @@ GEM
     coffee-script-source (1.8.0)
     colorize (0.7.5)
     columnize (0.9.0)
-    connection_pool (2.1.1)
     daemon_controller (1.2.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -104,7 +86,6 @@ GEM
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
-    hitimes (1.2.2)
     i18n (0.7.0)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
@@ -169,9 +150,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
-    redis (3.2.0)
-    redis-namespace (1.5.1)
-      redis (~> 3.0, >= 3.0.4)
     ref (1.0.5)
     rspec-collection_matchers (1.1.2)
       rspec-expectations (>= 2.99.0.beta1)
@@ -188,9 +166,6 @@ GEM
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
-    rvm1-capistrano3 (1.3.2.2)
-      capistrano (~> 3.0)
-      sshkit (>= 1.2)
     sass (3.4.10)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -201,12 +176,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sidekiq (3.3.1)
-      celluloid (>= 0.16.0)
-      connection_pool (>= 2.1.1)
-      json
-      redis (>= 3.0.6)
-      redis-namespace (>= 1.3.1)
     slop (3.6.0)
     spring (1.2.0)
     sprockets (2.12.3)
@@ -228,8 +197,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    timers (4.0.1)
-      hitimes
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -254,9 +221,7 @@ DEPENDENCIES
   capistrano-db-tasks!
   capistrano-rails (~> 1.1.1)
   capistrano-rvm
-  capistrano-sidekiq!
   coffee-rails (~> 4.1.0)
-  jasminerice!
   jbuilder (~> 2.0)
   jquery-rails
   passenger
@@ -264,7 +229,6 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.0)
   rspec-rails (< 3.0)
-  rvm1-capistrano3
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

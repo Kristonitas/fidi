@@ -26,12 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# gem 'puma'
-
 gem 'passenger'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 3.3.0'
@@ -50,13 +45,10 @@ group :development, :test do
 
   gem 'capistrano-rails', '~> 1.1.1'
 
-  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
   gem 'rspec-rails', '< 3.0'
   gem 'pry-rails'
-  gem 'rvm1-capistrano3',    require: false
   gem 'capistrano-bundler',  require: false
   gem 'capistrano-db-tasks', github: 'sgruhier/capistrano-db-tasks', require: false
-  gem 'capistrano-sidekiq',  github: 'seuros/capistrano-sidekiq'
-  # gem 'capistrano3-puma',   require: false
+  # gem 'capistrano-sidekiq',  github: 'seuros/capistrano-sidekiq'
 end
 
