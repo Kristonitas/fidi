@@ -45,7 +45,7 @@ group :development, :test do
 
   gem 'capistrano-rails', '~> 1.1.1'
 
-  gem 'rspec-rails', '< 3.0'
+  # gem 'rspec-rails', '< 3.0'
   gem 'pry-rails'
   gem 'capistrano-bundler',  require: false
   gem 'capistrano-db-tasks', github: 'sgruhier/capistrano-db-tasks', require: false
