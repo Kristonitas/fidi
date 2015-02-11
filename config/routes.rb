@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'attempts/new'
+
   get 'booths/new'
 
   get 'users/new'
