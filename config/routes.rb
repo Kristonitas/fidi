@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'attempts/new'
 
-  get 'booths/new'
+  get 'booths/:id' => 'booths#show', as: 'booth'
 
   get 'users/new' => 'users#new', as: 'new_user'
   get 'users/:id' => 'users#show', as: 'user'

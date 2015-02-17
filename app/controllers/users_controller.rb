@@ -5,12 +5,15 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
+    #Need to show some more stuff
   end
 
   def new
+    #Fill this place for fallback registration
   end
 
   def create
+    #Add support for mobile phone app-keys
     @user = User.new(user_params)
 
     respond_to do |format|
