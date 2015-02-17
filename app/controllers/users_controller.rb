@@ -18,6 +18,8 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, location: @user }
       else
+        flash[:warrning] = "Error creating new user #{@user.errors.inspect}"
+
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
