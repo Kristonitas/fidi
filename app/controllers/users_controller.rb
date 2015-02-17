@@ -5,6 +5,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
+    best_attempts
+    p "+"
+    p @best_attempts.inspect
+    p "+"
+    p Attempt.all.inspect
+    p "+"
     #Need to show some more stuff
   end
 
@@ -37,5 +43,20 @@ class UsersController < ApplicationController
 
     def user_params
       { name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation] }
+    end
+
+    def best_attempts
+      # @best_attempts ||= Attempt.find_by_sql [
+      #   "SELECT t1.*
+      #   FROM attempts AS t1
+      #   LEFT OUTER JOIN attempts AS t2
+      #    ON (t1.booth_id = t2.booth_id AND t1.score < t2.score AND t1.user_id = ?)
+      #   WHERE t2.booth_id IS NULL;", @user.id]
+      @best_attempts = Attempt.find_by_sql [
+        "SELECT *
+        FROM attempts AS t1
+        WHERE NOT EXISTS 
+        (SELECT * FROM attempts AS t2
+        WHERE t1.booth_id = t2.booth_id AND t1.score < t2.score and t1.user_id = ?);", @user.id]
     end
 end
