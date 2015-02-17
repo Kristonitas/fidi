@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :except => :create
   protect_from_forgery :except => :create
 
+  before_action :set_user, only: [:show]
+
   def show
   end
 
@@ -23,6 +25,10 @@ class UsersController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = User.find(params[:id])
+    end
 
     def user_params
       { name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation] }
