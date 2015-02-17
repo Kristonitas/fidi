@@ -89,5 +89,8 @@ test:
 production:
   <<: *default
   database: fidi_production
-  username: <%= ENV['FIDI_DATABASE_USERNAME'] %>
-  password: <%= ENV['FIDI_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: postgres
+
+  # username: <%= ENV['FIDI_DATABASE_USERNAME'] %>
+  # password: <%= ENV['FIDI_DATABASE_PASSWORD'] %>
