@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   get 'booths/new'
 
-  get 'users/new'
+  get 'users/new' => 'users#new', as: 'new_user'
+  get 'users/:id' => 'users#show', as: 'user'
+  post 'users' => 'users#create'
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
