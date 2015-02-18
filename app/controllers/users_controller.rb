@@ -6,11 +6,6 @@ class UsersController < ApplicationController
 
   def show
     best_attempts
-    p "+"
-    p @best_attempts.inspect
-    p "+"
-    p Attempt.all.inspect
-    p "+"
     #Need to show some more stuff
   end
 
