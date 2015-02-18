@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20150218170923) do
   create_table "booths", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "image_url"
-    t.integer  "x",           null: false
-    t.integer  "y",           null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "image_url",   default: ""
+    t.integer  "pos_x",       default: 0
+    t.integer  "pos_y",       default: 0
   end
 
   create_table "users", force: :cascade do |t|
