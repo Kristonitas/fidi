@@ -1,4 +1,4 @@
-json.user! do
+json.user do
   json.extract! @user, :id, :name, :created_at
 end
 
