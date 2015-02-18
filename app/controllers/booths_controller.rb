@@ -2,7 +2,7 @@ class BoothsController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
-    @highscores = @booth.attempts.limit(10).sort_by{|booth| booth.score}
+    @highscores = @booth.attempts.limit(10).sort_by{|booth| booth.score}.reverse
   end
 
   private
