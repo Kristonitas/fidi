@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posts
+
   get 'attempts/new'
 
   get 'booths/:id' => 'booths#show', as: 'booth'
