@@ -2,11 +2,10 @@ class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :except => :create
   protect_from_forgery :except => :create
 
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
     best_attempts
-    #Need to show some more stuff
   end
 
   def new

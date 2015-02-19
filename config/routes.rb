@@ -1,13 +1,37 @@
 Rails.application.routes.draw do
+
+  # Routes for admins
+
+  # Create a new user page
+  get 'users/new' => 'users#new', as: 'new_user'
+  # Route to admin page to manage users
+  get 'users/manage' => 'users#manage', as: 'manage_users'
+  # Route to admin page to manage booths
+  get 'booths/manage' => 'booths#manage', as: 'manage_booths'
+  # Route to manage posts
   resources :posts
 
-  get 'attempts/new'
+  # Need fallback and admin login routes
 
-  get 'booths/:id' => 'booths#show', as: 'booth'
+  # Routes for apps
 
-  get 'users/new' => 'users#new', as: 'new_user'
-  get 'users/:id' => 'users#show', as: 'user'
+  # Route to get initial data unrelated to user
+  get 'info' => 'application#info'
+  # Might need a route to get all of data for user
+  ###
+  # Route to create a new user
   post 'users' => 'users#create'
+  # Route to show or refresh user and his stats
+  get 'users/:id' => 'users#show', as: 'user'
+  # Route to show or refresh global leaderboard
+  get 'leaderboard' => 'users#leaderboard', as: 'leaderboard'
+
+  # Route to show or refresh booth and booth leaderboard
+  get 'booths/:id' => 'booths#show', as: 'booth'
+  # Route to fetch the whole map with booths and their positions
+  get 'map' => 'booths#map', as: 'map'
+
+
   # resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
