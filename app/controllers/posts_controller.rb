@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  # dieninė: 0, eisena: 1, vakarinė: 2
+
   # GET /posts
   # GET /posts.json
   def index
