@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # validations for different fields
   validates :name, presence: true, length: { maximum: 50 },
                   uniqueness: { case_sensitive: false }
-  validates :password, presence: true
+  validates :password, presence: true, allow_blank: true
 
   # method that forces having a  password
   has_secure_password

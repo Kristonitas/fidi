@@ -9,6 +9,20 @@ class Admin::UsersController < ApplicationController
     User.find(params[:id]).destroy
     redirect_to admin_users_path
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to admin_users_path
+    else
+      flash[:warrning] = "Error updating user #{@user.errors.inspect}"
+      redirect_to admin_users_path
+    end
+  end
   
   def create
     @user = User.new(user_params)
