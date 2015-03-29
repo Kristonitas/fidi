@@ -25,12 +25,12 @@ Rails.application.routes.draw do
   # Route to show or refresh user and his stats
   get 'users/:id' => 'users#show', as: 'user'
   # Route to show or refresh global leaderboard
-  get 'leaderboard' => 'users#leaderboard', as: 'leaderboard'
+  get 'users/leaderboard' => 'users#leaderboard', as: 'leaderboard'
 
   # Route to show or refresh booth and booth leaderboard
   get 'booths/:id' => 'booths#show', as: 'booth'
   # Route to fetch the whole map with booths and their positions
-  get 'map' => 'booths#map', as: 'map'
+  get 'booths/map' => 'booths#map', as: 'map'
 
 
   # resources :users
