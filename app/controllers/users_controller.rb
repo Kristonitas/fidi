@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show]
 
+  api!
   def show
     @best_attempts = @user.attempts.where(is_record: true)
   end
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
     #Fill this place for fallback registration
   end
 
+  api!
   def create
     #Add support for mobile phone app-keys
     @user = User.new(user_params)
@@ -36,6 +38,7 @@ class UsersController < ApplicationController
     end
   end
 
+  api!
   def leaderboard
     @leaderboard = User.find_by_sql(
         "SELECT users.id, users.name, SUM(attempts.score) AS total_score

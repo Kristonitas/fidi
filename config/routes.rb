@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  apipie
   # Routes for admins
 
   # Create a new user page
