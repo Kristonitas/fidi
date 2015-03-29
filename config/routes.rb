@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   # Routes for admins
 
   # Create a new user page
-  get 'users/new' => 'users#new', as: 'new_user'
-  # Route to admin page to manage users
-  get 'users/manage' => 'users#manage', as: 'manage_users'
-  # Route to admin page to manage booths
-  get 'booths/manage' => 'booths#manage', as: 'manage_booths'
-  # Route to manage posts
-  resources :posts
+  # get 'users/new' => 'users#new', as: 'new_user'
+  # # Route to admin page to manage users
+  # get 'users/manage' => 'users#manage', as: 'manage_users'
+  # # Route to admin page to manage booths
+  # get 'booths/manage' => 'booths#manage', as: 'manage_booths'
+  # # Route to manage posts
+  # resources :posts
 
   # Need fallback and admin login routes
 
@@ -32,6 +32,12 @@ Rails.application.routes.draw do
   # Route to fetch the whole map with booths and their positions
   get 'booths/map' => 'booths#map', as: 'map'
 
+  namespace :admin do
+    resources :users
+    resources :booths
+    resources :posts
+    root :to => 'users#index'
+  end
 
   # resources :users
 
