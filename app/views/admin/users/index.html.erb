@@ -1,0 +1,43 @@
+<h1>Users</h1>
+
+<hr>
+  <%= form_for User.new, url: admin_users_path do |form| %>
+
+    <div class="field">
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password %><br>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation %><br>
+      <%= form.password_field :password_confirmation %>
+    </div>
+    <%= form.submit 'Create new user' %>
+  <% end %>
+</hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% User.all.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+        <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

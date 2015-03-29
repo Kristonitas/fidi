@@ -4,4 +4,30 @@ class Admin::UsersController < ApplicationController
   include AdminAuthentication
 
   layout 'admin'
+
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to admin_users_path
+  end
+  
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      qr = RQRCode::QRCode.new( "http://79.98.25.158/attempt_for/#{@user.id}", :size => 3, :level => :l )
+      png = qr.to_img
+      png.resize(256, 256).save("public/qr_codes/#{@user.id}_qr.png")
+
+      redirect_to admin_users_path, notice: 'User was successfully created.'
+    else
+      flash[:warrning] = "Error creating new user #{@user.errors.inspect}"
+
+      redirect_to admin_users_path
+    end
+  end
+
+  private
+    def user_params
+      params.require(:user).permit(:name, :password, :password_confirmation)
+    end
 end

@@ -1,0 +1,20 @@
+<hr>
+  <%= form_for User.new, url: admin_users_path do |form| %>
+
+    <div class="field">
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password %><br>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation %><br>
+      <%= form.password_field :password_confirmation %>
+    </div>
+    <%= form.submit 'Create new user' %>
+  <% end %>
+</hr>
