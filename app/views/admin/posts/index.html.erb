@@ -1,0 +1,38 @@
+<h1>Posts</h1>
+
+<hr>
+  <%= form_for Post.new, url: admin_posts_path do |form| %>
+
+    <div class="field">
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content %><br>
+      <%= form.text_area :content %>
+    </div>
+
+    <%= form.submit 'Create new post' %>
+  <% end %>
+</hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Post.all.order("id").each do |post| %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= link_to post.name, edit_admin_post_path(post) %></td>
+        <td><%= link_to 'Destroy', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
