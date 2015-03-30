@@ -31,7 +31,7 @@
   </thead>
 
   <tbody>
-    <% User.all.each do |user| %>
+    <% User.all.order("id").each do |user| %>
       <tr>
         <td><%= user.id %></td>
         <td><%= link_to user.name, edit_admin_user_path(user) %></td>

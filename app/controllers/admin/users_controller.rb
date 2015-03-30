@@ -42,6 +42,6 @@ class Admin::UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :is_fidi, :booth_id, :password, :password_confirmation)
     end
 end

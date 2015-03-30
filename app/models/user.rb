@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # define the relation with attempts
   has_many :attempts
+  has_one :booth
   
   # remove excess spaces in name
   before_save {self.name = name.squish}

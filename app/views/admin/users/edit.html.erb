@@ -4,6 +4,16 @@
       <%= form.label :name %><br>
       <%= form.text_field :name %>
     </div>
+
+    <div class="field">
+      <%= form.label :is_fidi %><br>
+      <%= form.check_box :is_fidi %>
+    </div>
+
+    <div class="field">
+      <%= form.label :booth_id %><br>
+      <%= form.number_field :booth_id %>
+    </div>
     
     <%= form.submit 'Update' %>
   <% end %>
