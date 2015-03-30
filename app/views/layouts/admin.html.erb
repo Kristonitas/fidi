@@ -10,14 +10,15 @@
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
-    <ul class="header">
+    <ul class="navbar navbar-fixed-top navbar-inverse">
       <li><%= link_to "Booths",   admin_booths_path %></li>
       <li><%= link_to "Posts",   admin_posts_path %></li>
       <li><%= link_to "Users",   admin_users_path %></li>
     </ul>
 
-
-<%= yield %>
+<div class="content">
+  <%= yield %>
+</div>
 
 </body>
 </html>

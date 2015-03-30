@@ -1,17 +1,17 @@
 <hr>
   <%= form_for @user, url: admin_user_path(@user) do |form| %>
     <div class="field">
-      <%= form.label :name %><br>
+      <%= form.label :name %>
       <%= form.text_field :name %>
     </div>
 
     <div class="field">
-      <%= form.label :is_fidi %><br>
+      <%= form.label :is_fidi %>
       <%= form.check_box :is_fidi %>
     </div>
 
     <div class="field">
-      <%= form.label :booth_id %><br>
+      <%= form.label :booth_id %>
       <%= form.number_field :booth_id %>
     </div>
     
