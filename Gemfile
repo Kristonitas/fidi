@@ -32,7 +32,7 @@ gem 'rqrcode_png'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'apipie-rails'
+gem 'apipie-rails', '~> 0.3.1'
 
 gem 'passenger'
 
