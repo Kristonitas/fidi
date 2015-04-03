@@ -32,13 +32,6 @@ Rails.application.routes.draw do
   # Route to fetch the whole map with booths and their positions
   get 'booths/map' => 'booths#map', as: 'map'
 
-  namespace :admin do
-    resources :users
-    resources :booths
-    resources :posts
-    root :to => 'users#index'
-  end
-
   # resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
