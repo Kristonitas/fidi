@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'application#info'
 
   apipie
   # Routes for admins
