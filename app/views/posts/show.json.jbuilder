@@ -1,5 +1,3 @@
 json.post do
-  json.extract! @post, :id, :content, :visible, :created_at, :updated_at, :category
+  json.extract! @post, :id, :content, :visible
 end
-
-json.categories Post.categories.keys
