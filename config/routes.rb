@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   ###
   # Route to create a new user
   post 'users' => 'users#create'
+  post 'users/login' => 'users#login'
+
   # Route to show or refresh user and his stats
   get 'users/:id' => 'users#show', as: 'user'
   # Route to show or refresh global leaderboard

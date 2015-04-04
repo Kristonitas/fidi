@@ -17,18 +17,33 @@ class UsersController < ApplicationController
   end
 
   api!
+  def login
+    params = user_params
+    @user = User.find_by(name: params[:name]).authenticate(params[:password])
+
+    respond_to do |format|
+      if @user
+        format.json { render :show, location: @user }
+      else
+        flash[:warrning] = "Error creating new user #{@user.errors.inspect}"
+
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
+  api!
   def create
     #Add support for mobile phone app-keys
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, location: @user }
       else
         flash[:warrning] = "Error creating new user #{@user.errors.inspect}"
 
-        format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -46,6 +61,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.permit(:name, :password, :password_confirmation, :first_name, :last_name)
     end
 end

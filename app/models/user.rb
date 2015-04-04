@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
                   uniqueness: { case_sensitive: false }
   validates :password, presence: true, allow_blank: true
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   # method that forces having a  password
   has_secure_password
 
