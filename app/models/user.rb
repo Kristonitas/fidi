@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
 
   # method that forces having a  password
   has_secure_password
+  
+  after_save do
+        qr = RQRCode::QRCode.new( "http://79.98.25.158/attempt_for/#{self.id}", :size => 3, :level => :l )
+        png = qr.to_img
+        png.resize(256, 256).save("public/qr_codes/#{self.id}_qr.png")
+  end
 
   def best_attempts
     attempts.where(is_record: true)

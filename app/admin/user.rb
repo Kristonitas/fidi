@@ -5,7 +5,6 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :name
-    column :booth_id
     column :created_at
     actions
   end
@@ -19,6 +18,18 @@ ActiveAdmin.register User do
       f.input :password_confirmation
     end
     f.actions
+  end
+
+  show do |resource|
+    attributes_table do
+      row :id
+      row :name
+      row :created_at
+      row :updated_at
+
+      row('QR link:') { "http://79.98.25.158/qr_codes/#{user.id}_qr.png" }
+      row('QR data:') { "http://79.98.25.158/attempt_for/#{user.id}" }
+    end
   end
 
 end
