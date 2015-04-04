@@ -1,5 +1,5 @@
 ActiveAdmin.register Booth do
-  permit_params :name, :description, :image_url, :pos_x, :pos_y
+  permit_params :name, :description, :pointer_image_url, :image_url, :pos_x, :pos_y
 
   index do
     selectable_column
@@ -7,6 +7,7 @@ ActiveAdmin.register Booth do
     column :name
     column :description
     column :image_url
+    column :pointer_image_url
     column :pos_x
     column :pos_y
     actions
@@ -20,6 +21,7 @@ ActiveAdmin.register Booth do
       f.input :name
       f.input :description
       f.input :image_url
+      f.input :pointer_image_url
       f.input :pos_x, label: 'Pos x (in pixels)'
       f.input :pos_y, label: 'Pos y (in pixels)'
     end
