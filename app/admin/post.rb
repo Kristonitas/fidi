@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :content, :visible, :name, :priority, :category
+  permit_params :content, :visible, :name, :priority, :category, :time
 
   index do
     selectable_column
