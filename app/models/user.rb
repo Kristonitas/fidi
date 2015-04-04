@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   # define the relation with attempts
   # if will use the paswords for default user, might recreate with devise...
   has_many :attempts
-  has_one :booth
   
   # remove excess spaces in name
   before_save {self.name = name.squish}

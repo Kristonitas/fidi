@@ -4,5 +4,5 @@ class FidiUser < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable
 
-  has_one :booth
+  belongs_to :booth
 end

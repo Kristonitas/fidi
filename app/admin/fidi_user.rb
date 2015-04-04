@@ -21,7 +21,7 @@ ActiveAdmin.register FidiUser do
   form do |f|
     f.inputs "Fidi User Details" do
       f.input :email, label: "Email (may not be a real email)"
-      f.input :booth_id, as: :select, :collection => Booth.select(:id).pluck(:name, :id), multiple: false
+      f.input :booth_id, as: :select, :collection => Booth.all.pluck(:name, :id), multiple: false
       f.input :password 
       f.input :password_confirmation
     end
