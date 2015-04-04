@@ -1,5 +1,5 @@
 json.booth do
-  json.extract! @booth, :id, :name, :description, :image_url
+  json.extract! @booth, :id, :name, :description, :image_url, :pointer_image_url
 end
 
 json.highscores do
