@@ -13,11 +13,22 @@ class User < ActiveRecord::Base
 
   # method that forces having a  password
   has_secure_password
+
+  after_touch do
+    create_qr self.id
+  end
   
   after_save do
-        qr = RQRCode::QRCode.new( "http://79.98.25.158/attempt_for/#{self.id}", :size => 3, :level => :l )
-        png = qr.to_img
-        png.resize(256, 256).save("public/qr_codes/#{self.id}_qr.png")
+    create_qr self.id
+  end
+
+  def create_qr(id = 0)
+    qr_dir = "public/qr_codes/#{id}_qr.png"
+    return if File.file?(qr_dir)
+
+    qr = RQRCode::QRCode.new( "http://79.98.25.158/attempt_for/#{id}", :size => 3, :level => :l )
+    png = qr.to_img
+    png.resize(256, 256).save(qr_dir)
   end
 
   def total_score
