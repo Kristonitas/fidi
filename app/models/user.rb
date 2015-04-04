@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     "http://79.98.25.158/qr_codes/#{self.id}_qr.png"
   end
 
+  def google_qr_link
+    "https://chart.googleapis.com/chart?chs=256x256&cht=qr&chl=#{qr_data}&choe=UTF-8&chld=L|0"
+  end
+
   def qr_data
     "http://79.98.25.158/attempt_for/#{self.id}"
   end

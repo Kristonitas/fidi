@@ -30,6 +30,7 @@ ActiveAdmin.register User do
 
       row('QR link:') { user.qr_link }
       row('QR data:') { user.qr_data }
+      row('Google QR data:') { user.google_qr_link }
     end
   end
 
