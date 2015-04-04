@@ -23,10 +23,10 @@ Rails.application.routes.draw do
   post 'users' => 'users#create'
   post 'users/login' => 'users#login'
 
-  # Route to show or refresh user and his stats
-  get 'users/:id' => 'users#show', as: 'user'
   # Route to show or refresh global leaderboard
   get 'users/leaderboard' => 'users#leaderboard', as: 'leaderboard'
+  # Route to show or refresh user and his stats
+  get 'users/:id' => 'users#show', as: 'user'
 
   # Route to show or refresh booth and booth leaderboard
   get 'booths/:id' => 'booths#show', as: 'booth'
