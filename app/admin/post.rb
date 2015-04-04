@@ -6,7 +6,7 @@ ActiveAdmin.register Post do
     id_column
     column :name
     column :priority
-    column :category
+    column :time
     column :created_at
     column :visible
     actions
@@ -20,7 +20,8 @@ ActiveAdmin.register Post do
     f.inputs "Fidi Post Details" do
       f.input :name
       f.input :content
-      f.input :category, as: :select, collection: Post.categories.keys.to_a, multiple: false
+      f.input :time
+      # f.input :category, as: :select, collection: Post.categories.keys.to_a, multiple: false
       f.input :priority
       f.input :visible
     end
