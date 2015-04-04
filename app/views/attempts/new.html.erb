@@ -1,4 +1,24 @@
 <h1>Attempts#new, probably from attempt_for</h1>
 <p>Find me in app/views/attempts/new.html.erb</p>
 <h1>Fidder: <%= @current_fidder.email %></h1>
-<h1>Booth: <%= @current_fidder.booth.name %></h1>
+
+<h1>Dalyvis: <%= @user.name %></h1>
+<h1>Atrakcionas: <%= @current_fidder.booth.name %></h1>
+
+<%= form_for(@attempt) do |f| %>
+
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :booth_id, :value => @current_fidder.booth.id %>
+
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_field :comment %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br>
+    <%= f.text_field :score %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

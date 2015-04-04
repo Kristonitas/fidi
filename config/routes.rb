@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Routes for fidi men
   get 'attempt_for/:id' => 'attempts#new'
 
+  post 'attempts' => 'attempts#create'
 
   # Need fallback and admin login routes
 
