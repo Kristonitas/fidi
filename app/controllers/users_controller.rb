@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   api!
   def show
-    @best_attempts = @user.attempts.where(is_record: true)
+    @best_attempts = @user.best_attempts
   end
 
   def new
@@ -40,13 +40,7 @@ class UsersController < ApplicationController
 
   api!
   def leaderboard
-    @leaderboard = User.find_by_sql(
-        "SELECT users.id, users.name, SUM(attempts.score) AS total_score
-        FROM attempts
-        LEFT JOIN users
-        ON attempts.user_id=users.id
-        WHERE attempts.is_record=TRUE
-        GROUP BY users.id, users.name;")
+    @leaderboard = User.leaderboard
   end
 
   private
