@@ -14,7 +14,6 @@ ActiveAdmin.register Booth do
 
   filter :name
   filter :description
-  filter :image_url
 
   form do |f|
     f.inputs "Booth details" do

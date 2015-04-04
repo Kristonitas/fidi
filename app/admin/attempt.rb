@@ -19,5 +19,6 @@ ActiveAdmin.register Attempt do
   filter :comment
   filter :score
   filter :created_at
+  filter :is_record
 
 end

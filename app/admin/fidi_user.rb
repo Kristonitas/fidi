@@ -13,8 +13,7 @@ ActiveAdmin.register FidiUser do
   end
 
   filter :email
-  filter :booth_id
-  filter :current_sign_in_at
+  filter :booth
   filter :sign_in_count
   filter :created_at
 
