@@ -62,7 +62,8 @@ class User < ActiveRecord::Base
           LEFT JOIN users
           ON attempts.user_id=users.id
           WHERE attempts.is_record=TRUE
-          GROUP BY users.id, users.name;")
+          GROUP BY users.id, users.name
+          ORDER BY total_score DESC;")
     end
   end
 end
