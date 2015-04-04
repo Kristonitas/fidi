@@ -1,4 +1,4 @@
-ActiveAdmin.register FidiUser do
+ActiveAdmin.register Fidder do
   permit_params :email, :password, :password_confirmation, :booth_id
 
   index do

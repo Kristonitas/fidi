@@ -1,9 +1,9 @@
 class AttemptsController < ApplicationController
 
-  # before_action :authenticate_admin_user!
+  before_action :authenticate_fidder!
 
   def new
-    # @current_fidi_user = current_fidi_user
+    @current_fidder = current_fidder
   end
 
   def create

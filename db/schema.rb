@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404053829) do
+ActiveRecord::Schema.define(version: 20150404074431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,22 @@ ActiveRecord::Schema.define(version: 20150404053829) do
     t.integer  "pos_x",       default: 0
     t.integer  "pos_y",       default: 0
   end
+
+  create_table "fidders", force: :cascade do |t|
+    t.integer  "booth_id"
+    t.string   "email",               default: "", null: false
+    t.string   "encrypted_password",  default: "", null: false
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",       default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fidders", ["email"], name: "index_fidders_on_email", unique: true, using: :btree
 
   create_table "fidi_users", force: :cascade do |t|
     t.integer  "booth_id"
