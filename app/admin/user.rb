@@ -6,6 +6,7 @@ ActiveAdmin.register User do
     id_column
     column :name
     column :created_at
+    column :total_score
     actions
   end
 

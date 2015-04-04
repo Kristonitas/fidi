@@ -1,5 +1,5 @@
 json.user do
-  json.extract! @user, :id, :name, :qr_link
+  json.extract! @user, :id, :name, :qr_link, :total_score
 end
 
 json.best_attempts do

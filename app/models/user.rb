@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
         png.resize(256, 256).save("public/qr_codes/#{self.id}_qr.png")
   end
 
+  def total_score
+    attempts.where(is_record: true).sum(:score)
+  end
+
   def best_attempts
     attempts.where(is_record: true)
   end
