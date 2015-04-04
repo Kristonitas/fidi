@@ -38,6 +38,6 @@ set :log_level, :debug
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-namespace :deploy do
-  after 'deploy:setup_config', 'nginx:reload'
-end
+# namespace :deploy do
+#   after 'deploy:setup_config', 'nginx:reload'
+# end
