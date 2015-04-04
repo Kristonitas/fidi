@@ -1,9 +1,16 @@
 class AttemptsController < ApplicationController
+
+  # before_action :authenticate_admin_user!
+
+  def new
+    # @current_fidi_user = current_fidi_user
+  end
+
   def create
     # Refactor for redirecting back to user or something + test for record
 
     #Add support for mobile phone app-keys
-    @user = User.new(user_params)
+    @attempt = Attempt.new(user_params)
 
     respond_to do |format|
       if @user.save

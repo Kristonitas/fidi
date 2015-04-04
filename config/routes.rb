@@ -4,16 +4,9 @@ Rails.application.routes.draw do
   root to: 'application#info'
 
   apipie
-  # Routes for admins
+  # Routes for fidi men
+  get 'attempt_for/:id' => 'attempts#new'
 
-  # Create a new user page
-  # get 'users/new' => 'users#new', as: 'new_user'
-  # # Route to admin page to manage users
-  # get 'users/manage' => 'users#manage', as: 'manage_users'
-  # # Route to admin page to manage booths
-  # get 'booths/manage' => 'booths#manage', as: 'manage_booths'
-  # # Route to manage posts
-  # resources :posts
 
   # Need fallback and admin login routes
 

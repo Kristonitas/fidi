@@ -4,8 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   api :GET, '/info', 'General information for FIDI'
+
+  # before_action :authenticate_admin_user!
+
   def info
-  	@current_user = current_admin_user
+    @current_user = current_admin_user
     # Might need to fetch some global data
   end
 end
