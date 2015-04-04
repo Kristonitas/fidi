@@ -7,3 +7,5 @@ json.leaderboard do
     json.total_score user.total_score
   end
 end
+
+json.user_pos @user_pos

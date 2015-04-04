@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, :except => :create
   protect_from_forgery :except => :create
 
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :leaderboard]
 
   api!
   def show
@@ -52,6 +52,7 @@ class UsersController < ApplicationController
   api!
   def leaderboard
     @leaderboard = User.leaderboard
+    @user_pos = @leaderboard.index(@user)
   end
 
   private
