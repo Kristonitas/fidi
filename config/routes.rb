@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   post 'users/login' => 'users#login'
 
   # Route to show or refresh global leaderboard
-  get 'users/:id/leaderboard' => 'users#leaderboard', as: 'leaderboard'
+  get 'users/leaderboard' => 'users#leaderboard', as: 'leaderboard'
+  get 'users/:id/leaderboard' => 'users#leaderboard', as: 'user_leaderboard'
   # Route to show or refresh user and his stats
   get 'users/:id' => 'users#show', as: 'user'
 

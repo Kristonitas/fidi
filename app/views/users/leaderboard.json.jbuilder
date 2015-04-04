@@ -8,4 +8,7 @@ json.leaderboard do
   end
 end
 
-json.user_pos @user_pos
+if @user.present?
+	json.user_pos @user_pos
+	json.user_score @user.total_score
+end
