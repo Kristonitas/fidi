@@ -11,4 +11,4 @@
 /log/*
 !/log/.keep
 /tmp
-/public/qr_codes
+/public/qr_codes/*
