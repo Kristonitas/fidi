@@ -24,6 +24,13 @@ class User < ActiveRecord::Base
     attempts.where(is_record: true)
   end
 
+  def qr_link
+    "http://79.98.25.158/qr_codes/#{self.id}_qr.png"
+  end
+
+  def qr_data
+    "http://79.98.25.158/attempt_for/#{self.id}"
+  end
 
   class << self # Class methods
     def leaderboard

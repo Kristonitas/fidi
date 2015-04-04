@@ -27,8 +27,8 @@ ActiveAdmin.register User do
       row :created_at
       row :updated_at
 
-      row('QR link:') { "http://79.98.25.158/qr_codes/#{user.id}_qr.png" }
-      row('QR data:') { "http://79.98.25.158/attempt_for/#{user.id}" }
+      row('QR link:') { user.qr_link }
+      row('QR data:') { user.qr_data }
     end
   end
 
