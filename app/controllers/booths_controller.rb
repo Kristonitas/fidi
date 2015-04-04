@@ -8,7 +8,7 @@ class BoothsController < ApplicationController
 
   api :GET, '/booths/:id', "Gets booth and highscore for it"
   def show
-    @highscores = @booth.attempts.where(is_record: true).sort_by{|attempt| attempt.score}.limit(50)
+    # @highscores = @booth.attempts.where(is_record: true).sort_by{|attempt| attempt.score}.limit(50)
   end
 
   api :GET, '/map', "Get all booths with their positions"
