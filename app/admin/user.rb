@@ -6,6 +6,7 @@ ActiveAdmin.register User do
     id_column
     column :name
     column :booth_id
+    column :created_at
     actions
   end
 
