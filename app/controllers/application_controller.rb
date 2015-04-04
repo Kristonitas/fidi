@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   api :GET, '/info', 'General information for FIDI'
   def info
+  	@current_user = current_admin_user
     # Might need to fetch some global data
   end
 end
