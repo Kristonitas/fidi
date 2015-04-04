@@ -63,7 +63,8 @@ class User < ActiveRecord::Base
           ON attempts.user_id=users.id
           WHERE attempts.is_record=TRUE
           GROUP BY users.id, users.name
-          ORDER BY total_score DESC;")
+          ORDER BY total_score DESC
+          LIMIT 25;")
     end
   end
 end
