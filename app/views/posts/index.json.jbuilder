@@ -4,6 +4,5 @@ json.posts do
     json.url post_url(post, format: :json)
   end
 end
-json.categories do
-  json.array! ['Dieninė', 'Eisena', 'Vakarinė']
-end
+
+json.categories Post.categories.keys

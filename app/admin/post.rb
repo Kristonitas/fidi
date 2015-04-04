@@ -8,11 +8,13 @@ ActiveAdmin.register Post do
     column :priority
     column :category
     column :created_at
+    column :visible
     actions
   end
 
   filter :name
   filter :category
+  filter :visible
 
   form do |f|
     f.inputs "Fidi Post Details" do
@@ -20,6 +22,7 @@ ActiveAdmin.register Post do
       f.input :content
       f.input :category, as: :select, collection: Post.categories.keys.to_a, multiple: false
       f.input :priority
+      f.input :visible
     end
     f.actions
   end
