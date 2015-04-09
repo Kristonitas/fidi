@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: 'user'
 
   # Route to show or refresh booth and booth leaderboard
+  get 'booths/map_for_user/:id' => 'booths#map_for_user', as: 'map_for_user'
   get 'booths/map' => 'booths#map', as: 'map'
   get 'booths/:id' => 'booths#show', as: 'booth'
   # Route to fetch the whole map with booths and their positions

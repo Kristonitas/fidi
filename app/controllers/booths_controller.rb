@@ -16,6 +16,12 @@ class BoothsController < ApplicationController
     @booths = Booth.all
   end
 
+  def map_for_user
+    @booths = Booth.all
+    @booths_visited = User.find(params[:id]).best_attempts.map(&:booth_id)
+    render 'map'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
