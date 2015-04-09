@@ -11,6 +11,7 @@ class Attempt < ActiveRecord::Base
   	if last_record.nil?
   		self.is_record = true
   	elsif last_record.score < self.score
+  		last_record.update(is_record: false)
   		self.is_record = true
   	end
   end
