@@ -6,8 +6,9 @@ ActiveAdmin.register Booth do
     id_column
     column :name
     column :description
-    column :image_url
-    column :pointer_image_url
+    column :number_of_fidders
+    # column :image_url
+    # column :pointer_image_url
     column :pos_x
     column :pos_y
     actions
