@@ -1,4 +1,6 @@
 class Booth < ActiveRecord::Base
+  # serialize :available_scores, Array
+  
   has_many :attempts
   
   validates :name, presence: true

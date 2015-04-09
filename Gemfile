@@ -7,6 +7,8 @@ gem 'rails', '4.2.0'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'sass'
+gem 'compass-rails'
 gem 'bootstrap-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -18,6 +20,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'devise'
+gem 'chosen-rails'
 gem 'activeadmin', github: 'activeadmin'
 
 # Use jquery as the JavaScript library
