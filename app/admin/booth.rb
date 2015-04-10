@@ -9,14 +9,14 @@ ActiveAdmin.register Booth do
     column :description do |booth|
         booth.description.slice(0, 50) + '...'
     end
-    column :number_of_fidders
+    column 'numF', :number_of_fidders
     # column :image_url
     # column :pointer_image_url
     column 'Daugiklis', :multi
     column :userable
-    column :min_score
-    column :max_score
-    column :available_scores
+    column 'Min', :min_score
+    column 'Max', :max_score
+    column 'Galimi', :available_scores
     # column :pos_x
     # column :pos_y
     actions

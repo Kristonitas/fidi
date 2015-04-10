@@ -7,6 +7,10 @@ class Booth < ActiveRecord::Base
 
   has_many :fidders
 
+  before_save do
+	available_scores.reject!(&:nil?)
+  end
+
   def number_of_fidders
   	fidders.length
   end
