@@ -8,7 +8,7 @@ class Booth < ActiveRecord::Base
   has_many :fidders
 
   before_save do
-	available_scores.reject!(&:nil?)
+	available_scores.reject!(&:nil?) if available_scores.present?
   end
 
   def number_of_fidders
