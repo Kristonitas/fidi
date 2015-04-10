@@ -1,4 +1,6 @@
 ActiveAdmin.register Fidder do
+  batch_action :destroy, false
+  
   permit_params :email, :password, :password_confirmation, :booth_id
 
   index do

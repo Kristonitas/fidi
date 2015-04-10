@@ -1,4 +1,6 @@
 ActiveAdmin.register Booth do
+  batch_action :destroy, false
+  
   permit_params :name, :description, :pointer_image_url, :image_url, :pos_x, :pos_y, :userable, :code,
                 :min_score, :max_score, available_scores: []
 
