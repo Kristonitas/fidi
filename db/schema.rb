@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410173616) do
+ActiveRecord::Schema.define(version: 20150410225202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,18 +60,18 @@ ActiveRecord::Schema.define(version: 20150410173616) do
 
   create_table "booths", force: :cascade do |t|
     t.string   "name"
-    t.text     "description",       default: ""
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "image_url",         default: ""
-    t.integer  "pos_x",             default: 0
-    t.integer  "pos_y",             default: 0
-    t.string   "pointer_image_url", default: ""
-    t.integer  "multi",             default: 100
-    t.boolean  "userable",          default: false
+    t.text     "description",      default: ""
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "popup_image",      default: ""
+    t.integer  "pos_x",            default: 0
+    t.integer  "pos_y",            default: 0
+    t.string   "pointer_image",    default: ""
+    t.integer  "multi",            default: 100
+    t.boolean  "userable",         default: false
     t.integer  "min_score"
     t.integer  "max_score"
-    t.integer  "available_scores",                               array: true
+    t.integer  "available_scores",                              array: true
     t.string   "code"
   end
 
