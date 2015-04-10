@@ -10,7 +10,6 @@ ActiveAdmin.register Attempt do
     column :user
     column :booth
     column :comment
-    column :is_record
     column :score
     column :created_at
     actions
@@ -19,6 +18,5 @@ ActiveAdmin.register Attempt do
   filter :comment
   filter :score
   filter :created_at
-  filter :is_record
 
 end

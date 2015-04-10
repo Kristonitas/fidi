@@ -15,13 +15,26 @@ class AttemptsController < ApplicationController
     if code_booth.nil?
       render json: {message: 'no booth with this code'}
     else
-      new_attempt = Attempt.create(user_id: input[:user_id], booth_id: code_booth.id, score: code_booth.available_scores.first)
-      
-      render json: {new_code: new_attempt.is_record}
+      if Attempt.where(user_id: input[:user_id], booth_id: code_booth.id).take.nil?
+        Attempt.create(user_id: input[:user_id], booth_id: code_booth.id, score: code_booth.available_scores.first)
+        render json: {new_code: true}
+      else
+        render json: {new_code: false}
+      end
     end
   end
 
   def create
+    last_attempt = Attempt.where(user_id: attempt_params[:user_id], booth_id: attempt_params[:booth_id]).take
+
+    if last_attempt.nil?
+      @attempt = Attempt.new(attempt_params)
+    else
+      @attempt = last_attempt
+      if last_attempt.score < attempt_params[:score]
+        @attempt.score = attempt_params[:score]
+      end
+    end
     # Refactor for redirecting back to attempt or something + test for record
 
     #Add support for mobile phone app-keys
@@ -32,7 +45,7 @@ class AttemptsController < ApplicationController
         format.html { redirect_to root_path, notice: 'attempt was successfully created.' }
         format.json { render json: 'newRecord: ' }
       else
-        flash[:warrning] = "Error creating new attempt #{@attempt.errors.inspect}"
+        flash[:warrning] = "Error creating or logging attempt #{@attempt.errors.inspect}"
 
         format.html { redirect_to root_path }
         format.json { render json: @attempt.errors, status: :unprocessable_entity }

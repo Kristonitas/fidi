@@ -35,11 +35,11 @@ class User < ActiveRecord::Base
   end
 
   def total_score
-    attempts.where(is_record: true).sum(:score)
+    attempts.all.sum(:score)
   end
 
   def best_attempts
-    attempts.where(is_record: true)
+    attempts.all
   end
 
   def qr_link
@@ -61,7 +61,6 @@ class User < ActiveRecord::Base
           FROM attempts
           LEFT JOIN users
           ON attempts.user_id=users.id
-          WHERE attempts.is_record=TRUE
           GROUP BY users.id, users.name
           ORDER BY total_score DESC
           LIMIT 25;")
