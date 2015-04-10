@@ -1,5 +1,5 @@
 ActiveAdmin.register Booth do
-  permit_params :name, :description, :pointer_image_url, :image_url, :pos_x, :pos_y, :userable, :multi,
+  permit_params :name, :description, :pointer_image_url, :image_url, :pos_x, :pos_y, :userable, :code,
                 :min_score, :max_score, available_scores: []
 
   index do
@@ -12,8 +12,9 @@ ActiveAdmin.register Booth do
     column 'numF', :number_of_fidders
     # column :image_url
     # column :pointer_image_url
-    column 'Daugiklis', :multi
     column :userable
+    column 'Kods', :code
+    # column 'Daugiklis', :multi
     column 'Min', :min_score
     column 'Max', :max_score
     column 'Galimi', :available_scores
@@ -31,9 +32,10 @@ ActiveAdmin.register Booth do
       f.input :description
 
       f.input :userable
+      f.input :code
       f.input :min_score
       f.input :max_score
-      f.input :available_scores, as: :select, :collection => (1..20).to_a, multiple: true
+      f.input :available_scores, as: :select, :collection => (1..500).to_a, multiple: true
       # f.input :available_scores, as: :select, multiple: true, :input_html_options => {:multiple => true}
 
       f.input :image_url

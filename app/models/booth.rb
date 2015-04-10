@@ -14,4 +14,11 @@ class Booth < ActiveRecord::Base
   def number_of_fidders
   	fidders.length
   end
+
+  class << self # Class methods
+
+    def for_code(code)
+      Booth.where(code: code, userable: true).take
+    end
+  end
 end

@@ -1,11 +1,22 @@
 class AttemptsController < ApplicationController
 
-  before_action :authenticate_fidder!
+  before_action :authenticate_fidder!, :except => :log_code
+  skip_before_filter :verify_authenticity_token, :except => [:create, :new]
 
   def new
     @current_fidder = current_fidder
     @attempt = Attempt.new
     @user = User.find(params[:id])
+  end
+
+  def log_code
+    input = params.permit(:code, :user_id)
+    code_booth = Booth.for_code input[:code]
+    return if code_booth.nil?
+
+    new_attempt = Attempt.create(user_id: input[:user_id], booth_id: code_booth.id, score: code_booth.available_scores.first)
+    
+    render json: {new_code: new_attempt.is_record}
   end
 
   def create
