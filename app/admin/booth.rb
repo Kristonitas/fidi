@@ -38,6 +38,8 @@ ActiveAdmin.register Booth do
       f.input :available_scores, as: :select, :collection => (1..500).to_a, multiple: true
       # f.input :available_scores, as: :select, multiple: true, :input_html_options => {:multiple => true}
 
+      f.label :image_url, Dir["./public/booths/*"].each {|x| x.slice!('./public/booths/') }.to_s
+
       f.input :image_url
       f.input :pointer_image_url
       f.input :pos_x, label: 'Pos x (in pixels)'
