@@ -12,11 +12,13 @@ class AttemptsController < ApplicationController
   def log_code
     input = params.permit(:code, :user_id)
     code_booth = Booth.for_code input[:code]
-    return if code_booth.nil?
-
-    new_attempt = Attempt.create(user_id: input[:user_id], booth_id: code_booth.id, score: code_booth.available_scores.first)
-    
-    render json: {new_code: new_attempt.is_record}
+    if code_booth.nil?
+      render json: {message: 'no booth with this code'}
+    else
+      new_attempt = Attempt.create(user_id: input[:user_id], booth_id: code_booth.id, score: code_booth.available_scores.first)
+      
+      render json: {new_code: new_attempt.is_record}
+    end
   end
 
   def create
