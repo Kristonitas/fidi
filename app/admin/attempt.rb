@@ -11,6 +11,7 @@ ActiveAdmin.register Attempt do
     column :booth
     column :comment
     column :score
+    column :entries
     column :created_at
     actions
   end
