@@ -42,12 +42,12 @@ class AttemptsController < ApplicationController
 
     respond_to do |format|
       if @attempt.save
-        format.html { redirect_to root_path, notice: 'attempt was successfully created.' }
+        format.html { redirect_to info_path, notice: 'attempt was successfully created.' }
         format.json { render json: 'newRecord: ' }
       else
         flash[:warrning] = "Error creating or logging attempt #{@attempt.errors.inspect}"
 
-        format.html { redirect_to root_path }
+        format.html { redirect_to info_path }
         format.json { render json: @attempt.errors, status: :unprocessable_entity }
       end
     end

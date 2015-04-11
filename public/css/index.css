@@ -1,0 +1,569 @@
+sponsorsbackground/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* code */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+.menu
+{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #1d1c24;
+	box-shadow: 0 0 5px #000;
+  z-index: 2000;
+}
+
+.menu ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.menu ul li
+{
+	float: left;
+	width: 33.333333%;
+}
+
+.menu ul li a
+{
+	display: block;
+	width: 100%;
+	padding: 12px 0;
+	text-align: center;
+	color: #a7a4b4;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 18px;
+	text-shadow: none;
+}
+
+.menu ul li a:hover
+{
+	background-color: #484657;
+}
+
+#sponsorsbackground
+{
+	position: relative;
+	width: 100%;
+}
+
+#eksmaoptics
+{
+	position: absolute;
+	width: 53.5%;
+	top: 26.5%;
+	/*top: calc(25.8% + 30px);*/
+	left: 2%;
+	z-index: 10;
+}
+
+#ekspla
+{
+	position: absolute;
+	width: 56%;
+	top: 17%;
+	/*top: calc(17.2% + 30px);*/
+	left: 5%;
+	z-index: 10;
+}
+
+#eksma
+{
+	position: absolute;
+	width: 52%;
+	top: 32%;
+	/*top: calc(31.2% + 30px);*/
+	left: 2%;
+	z-index: 10;
+}
+
+#altechna
+{
+	position: absolute;
+	width: 44%;
+	top: 33.7%;
+	/*top: calc(33% + 30px);*/
+	left: 54%;
+	z-index: 10;
+}
+
+#mapimage
+{
+	/*background-image: url(../img/map.png);*/
+	width: 620px;
+	height: 877px;
+}
+
+.scrollmapicons
+{
+	position: relative;
+}
+
+.scrollmap
+{
+	/*position: fixed;*/
+	/*overflow-x: scroll;
+	overflow-y: scroll;*/
+	/*overflow: scroll;*/
+	/*width: 100%;*/
+	/*height: 100%;*/
+	/*width: 620px;*/
+	/*height: 877px;*/
+}
+
+#map
+{
+	/*height: 100%;*/
+	/*width: 100%;*/
+}
+
+.content
+{
+	/*width: 100%;*/
+	/*height: 100%;*/
+	margin: 52px 0 40px 0;
+	padding: 0;
+	overflow: scroll;
+}
+
+.top-bar
+{
+	background: #f2f2f7;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	box-shadow: 0 0 5px #000;
+	text-align: center;
+	z-index: 10001;
+}
+
+.top-bar img
+{
+	height: 32px;
+	margin: 8px;
+}
+
+.backbutton
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.leaderboards
+{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+table
+{
+	width: 100%;
+}
+
+.timecell
+{
+	width: 20%;
+	text-align: center;
+	vertical-align: middle;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	padding: 16px;
+	font-size: 1.75em;
+	font-weight: bold;
+}
+
+.eventcell
+{
+	width: 80%;
+	text-align: center;
+	vertical-align: middle;
+	padding: 16px;
+	border-bottom: 1px solid #000;
+}
+
+#score h2,
+.eventcell h2
+{
+	font-size: 1.5em;
+	margin-bottom: .5em;
+}
+
+.eventcell p
+{
+	text-transform: none;
+}
+
+#dienine
+{
+	background-color: #5b52ab;
+	text-shadow: none;
+	color: #fff;
+}
+
+.scoretable,
+.dienine
+{
+	color: #fff;
+	text-shadow: none;
+	padding: 0;
+}
+
+.scoretable,
+.dienine td
+{
+	border-bottom: none;
+}
+
+.dienine .timecell
+{
+	border-right: 2px solid #938eba;
+}
+
+.scoretable tr:nth-child(odd),
+.dienine tr:nth-child(odd)
+{
+	background-color: #413d94;
+}
+
+.main-fizilendas img,
+.main-eisena img,
+.main-vakarine img
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	display: block;
+  -webkit-transition: left 0.35s;
+  transition: left 0.35s;
+}
+
+.main-fizilendas
+{
+	background-color: #c3e2f7;
+}
+
+.main-eisena
+{
+	background-color: #f6a335;
+}
+
+.main-vakarine
+{
+	background-color: #007fe5;
+}
+
+#register,
+#login
+{
+	text-transform: none;
+	padding-top: 25px;
+	text-align: center;
+}
+
+#score
+{
+	background: #5b52aa;
+	padding-top: 20px;
+	text-align: center;
+	text-shadow: none;
+	color: #fff;
+	text-transform: none;
+}
+
+.scoretable th,
+.scoretable td
+{
+	padding: 8px;
+}
+
+.scoretable th
+{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#qr
+{
+	text-align: center;
+}
+
+#vakarine img,
+#eisena img
+{
+	width: 100%;
+}
+
+.currentuser
+{
+	background: #FFBA0D;
+	color: #000;
+}
+
+.mappopup
+{
+	width: 80%;
+	height: 80%;
+	margin: auto;
+	background: #fff;
+	position: fixed;
+	z-index: 10000;
+	overflow-x: scroll;
+	top: 10%;
+	left: 10%;
+	text-transform: none;
+	text-align: center;
+	box-shadow: 0px 0px 10px 1px #000;
+}
+
+.popupimage
+{
+	width: 100%;
+}
+
+.popuptitle
+{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.2em;
+	margin: 12px;
+}
+
+.popupdescription
+{
+	margin: 12px;
+}
+
+.mapicon
+{
+	position: absolute;
+	z-index: 9000;
+}
+
+.mapicon img
+{
+	width: 34px;
+}
+
+.mappopup h3
+{
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom: 8px;
+}
+
+.popupscore
+{
+	width: 100%;
+}
+
+.popupscore th
+{
+	font-weight: bold;
+}
+
+.popupscore tr
+{
+	border-bottom: 1px solid #000;
+}
+
+.popupscore th,
+.popupscore td
+{
+	padding: 8px;
+}
+
+.popupClose {
+  width: 50px;
+  height: 50px;
+  position:fixed;
+  right: 37px;
+  top: 62px;
+}
+
+/* gg fix */
+#main {
+  background: #252525;
+}
+#main .content {
+ overflow: hidden;
+}
+.ui-input-text {
+  width: 90%;
+  margin: 5px auto 5px;
+}
+button.ui-btn {
+  width: 90%;
+  margin: 15px 5%;
+}
+
+.qrText{
+  font-size: 14px;
+  line-height: 22px;
+  padding:10px;
+}

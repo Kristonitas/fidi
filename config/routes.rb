@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :fidders
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root to: 'application#info'
+  # root to: 'application#info'
 
   apipie
   # Routes for fidi men
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # Routes for apps
 
   # Route to get initial data unrelated to user
-  get 'info' => 'application#info'
+  get 'info' => 'application#info', as: 'info'
   # Might need a route to get all of data for user
   ###
   # Route to create a new user
