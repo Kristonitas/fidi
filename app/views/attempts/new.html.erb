@@ -11,7 +11,7 @@
     <%= f.label :score %><br>
     <% if @booth.min_score.present? && @booth.max_score.present? %>
       <%= f.range_field :score, :min=>@booth.min_score, :max=>@booth.max_score, :class=>"slide", :id=>"slider1", :style => "height: 100; font-size: 30px" %>
-      <text id="W1" style="font-size: 30px"> <%=@booth.max_score%> </text>
+      <text id="W1" style="font-size: 40px"> <%=@booth.max_score%> </text>
     <% else %>
       <%= f.select(:score, @booth.available_scores.map { |value| [ value, value ] }, {}, :style => "width:100px; height: 40px; font-size: 30px") %>
     <% end %>
