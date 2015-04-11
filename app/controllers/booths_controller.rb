@@ -13,7 +13,7 @@ class BoothsController < ApplicationController
 
   api :GET, '/map', "Get all booths with their positions"
   def map
-    @booths = Booth.all
+    @booths = Booth.all.order('pos_y ASC')
   end
 
   def map_for_user

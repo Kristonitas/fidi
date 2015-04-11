@@ -4,6 +4,8 @@ ActiveAdmin.register Booth do
   permit_params :name, :description, :popup_image, :pointer_image, :pos_x, :pos_y, :userable, :code,
                 :min_score, :max_score, :max_attempts, available_scores: []
 
+  config.filters = false
+  
   index do
     selectable_column
     id_column
@@ -20,13 +22,10 @@ ActiveAdmin.register Booth do
     column 'Max', :max_score
     column 'Galimi', :available_scores
     column 'Kelis kartus', :max_attempts
-    # column :pos_x
-    # column :pos_y
+    column 'X', :pos_x
+    column 'Y', :pos_y
     actions
   end
-
-  filter :name
-  filter :description
 
   form do |f|
     f.inputs "Booth details" do
