@@ -35,9 +35,9 @@ class AttemptsController < ApplicationController
     else
       @attempt = last_attempt
       if the_booth.max_attempts > 0
-        @attempt.score += attempt_params[:score] if @attempt.entries < the_booth.max_attempts
+        @attempt.score += attempt_params[:score].to_i if @attempt.entries < the_booth.max_attempts
       else
-        @attempt.score = attempt_params[:score] if @attempt.score < attempt_params[:score]
+        @attempt.score = attempt_params[:score] if @attempt.score < attempt_params[:score].to_i
       end
 
       @attempt.entries += 1
