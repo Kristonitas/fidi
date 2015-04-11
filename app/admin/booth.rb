@@ -8,6 +8,7 @@ ActiveAdmin.register Booth do
     selectable_column
     id_column
     column :name
+    column 'Pav', :popup_image
     column :description do |booth|
         booth.description.slice(0, 50) + '...'
     end
@@ -19,7 +20,6 @@ ActiveAdmin.register Booth do
     column 'Max', :max_score
     column 'Galimi', :available_scores
     column 'Kelis kartus', :max_attempts
-    column 'Pav', :popup_image
     # column :pos_x
     # column :pos_y
     actions
