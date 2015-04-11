@@ -5,6 +5,7 @@ class AttemptsController < ApplicationController
 
   def new
     @current_fidder = current_fidder
+    @booth = Booth.find(@current_fidder.booth.id)
     @attempt = Attempt.new
     @user = User.find(params[:id])
   end

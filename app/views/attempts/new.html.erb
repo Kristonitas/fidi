@@ -11,16 +11,30 @@
   <%= f.hidden_field :booth_id, :value => @current_fidder.booth.id %>
 
   <div class="field">
+    <%= f.label :score %><br>
+    <% if @booth.min_score.present? && @booth.max_score.present? %>
+      <%= f.range_field :score, :min=>@booth.min_score, :max=>@booth.max_score, :class=>"slide", :id=>"slider1"%>
+      <text id="W1"> <%=@booth.max_score%> </text>
+    <% else %>
+      <%= f.select(:score, @booth.available_scores.map { |value| [ value, value ] }) %>
+    <% end %>
+  <div>
+
+  <div class="field">
     <%= f.label :comment %><br>
     <%= f.text_field :comment %>
   </div>
-  <div class="field">
-    <%= f.label :score %><br>
-    <%= f.text_field :score %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
 
 <h1> <%= link_to "Log out", destroy_fidder_session_path, method: :delete %> </h1>
+
+<script>
+  $("#slider1").change(function () {                    
+     var newValue = $('#slider1').val();
+     $("#W1").html(newValue);
+  });
+</script>
