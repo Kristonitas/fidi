@@ -17,8 +17,8 @@ class Booth < ActiveRecord::Base
     elsif popup_image.start_with?('http')
       popup_image
     else
-      # 'http://79.98.25.158/booths/' + popup_image
-      'img/booths/' + popup_image
+      'http://79.98.25.158/booths/' + popup_image
+      # 'img/booths/' + popup_image
     end
   end
 
@@ -28,8 +28,8 @@ class Booth < ActiveRecord::Base
     elsif pointer_image.start_with?('http')
       pointer_image
     else
-      # 'http://79.98.25.158/pointers/' + pointer_image
-      'img/pointers/' + pointer_image
+      'http://79.98.25.158/pointers/' + pointer_image
+      # 'img/pointers/' + pointer_image
     end
   end
 
