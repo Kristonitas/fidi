@@ -19,6 +19,7 @@ ActiveAdmin.register Booth do
     column 'Max', :max_score
     column 'Galimi', :available_scores
     column 'Kelis kartus', :max_attempts
+    column 'Pav', :popup_image
     # column :pos_x
     # column :pos_y
     actions
