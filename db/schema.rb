@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410225202) do
+ActiveRecord::Schema.define(version: 20150411013229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,9 @@ ActiveRecord::Schema.define(version: 20150410225202) do
     t.integer  "booth_id"
     t.integer  "score"
     t.string   "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "count",      default: 1
   end
 
   create_table "booths", force: :cascade do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150410225202) do
     t.integer  "max_score"
     t.integer  "available_scores",                              array: true
     t.string   "code"
+    t.integer  "max_attempts",     default: 0
   end
 
   create_table "fidders", force: :cascade do |t|

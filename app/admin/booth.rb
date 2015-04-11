@@ -2,7 +2,7 @@ ActiveAdmin.register Booth do
   batch_action :destroy, false
   
   permit_params :name, :description, :popup_image, :pointer_image, :pos_x, :pos_y, :userable, :code,
-                :min_score, :max_score, available_scores: []
+                :min_score, :max_score, :max_attempts, available_scores: []
 
   index do
     selectable_column
@@ -18,6 +18,7 @@ ActiveAdmin.register Booth do
     column 'Min', :min_score
     column 'Max', :max_score
     column 'Galimi', :available_scores
+    column 'Kelis kartus', :max_attempts
     # column :pos_x
     # column :pos_y
     actions
@@ -37,6 +38,7 @@ ActiveAdmin.register Booth do
       f.input :max_score
       f.input :available_scores, as: :select, :collection => (1..500).to_a, multiple: true
       # f.input :available_scores, as: :select, multiple: true, :input_html_options => {:multiple => true}
+      f.input :max_attempts, label: 'Kelis kartus (0-neribotai)'
 
       f.label :popup_image, Dir["./public/booths/*"].each {|x| x.slice!('./public/booths/') }.to_s
       f.label :popup_image, 'naudoti http:// jei tiesiogini url, kitaip automatiskai prides'
