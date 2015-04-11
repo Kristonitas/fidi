@@ -2,7 +2,7 @@ ActiveAdmin.register Booth do
   batch_action :destroy, false
   
   permit_params :name, :description, :popup_image, :pointer_image, :pos_x, :pos_y, :userable, :code,
-                :min_score, :max_score, :max_attempts, available_scores: []
+                :min_score, :max_score, :max_attempts, :visible, available_scores: []
 
   config.filters = false
   config.per_page = 100
@@ -10,6 +10,7 @@ ActiveAdmin.register Booth do
   index do
     selectable_column
     id_column
+    column :visible
     column :name do |booth|
       link_to booth.name, edit_admin_booth_url(booth)
     end
@@ -33,6 +34,7 @@ ActiveAdmin.register Booth do
   form do |f|
     f.inputs "Booth details" do
       f.input :name
+      f.input :visible
       f.input :description
 
       f.input :userable

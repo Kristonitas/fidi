@@ -13,11 +13,11 @@ class BoothsController < ApplicationController
 
   api :GET, '/map', "Get all booths with their positions"
   def map
-    @booths = Booth.all.order('pos_y ASC')
+    @booths = Booth.where(visible: true).order('pos_y ASC')
   end
 
   def map_for_user
-    @booths = Booth.all
+    @booths = Booth.where(visible: true).order('pos_y ASC')
     @booths_visited = User.find(params[:id]).best_attempts.map(&:booth_id)
     render 'map'
   end

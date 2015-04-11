@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411013229) do
+ActiveRecord::Schema.define(version: 20150411062528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150411013229) do
     t.integer  "available_scores",                              array: true
     t.string   "code"
     t.integer  "max_attempts",     default: 0
+    t.boolean  "visible",          default: true
   end
 
   create_table "fidders", force: :cascade do |t|
