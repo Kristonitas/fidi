@@ -5,11 +5,14 @@ ActiveAdmin.register Booth do
                 :min_score, :max_score, :max_attempts, available_scores: []
 
   config.filters = false
-  
+  config.per_page = 100
+
   index do
     selectable_column
     id_column
-    column :name
+    column :name do |booth|
+      link_to booth.name, edit_admin_booth_url(booth)
+    end
     column 'Pav', :popup_image
     column :description do |booth|
         booth.description.slice(0, 50) + '...'
