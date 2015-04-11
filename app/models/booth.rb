@@ -4,6 +4,7 @@ class Booth < ActiveRecord::Base
   has_many :attempts
   
   validates :name, presence: true
+  validates :max_attempts, presence: true
 
   has_many :fidders
 
