@@ -15,10 +15,12 @@ class AttemptsController < ApplicationController
     if code_booth.nil?
       render json: {message: 'no booth with this code'}
     else
-      if Attempt.where(user_id: input[:user_id], booth_id: code_booth.id).take.nil?
+      last_attempt = Attempt.where(user_id: input[:user_id], booth_id: code_booth.id).take
+      if last_attempt.nil?
         Attempt.create(user_id: input[:user_id], booth_id: code_booth.id, score: code_booth.available_scores.first)
         render json: {new_code: true}
       else
+        last_attempt.update(entries: last_attempt + 1)
         render json: {new_code: false}
       end
     end
@@ -26,18 +28,21 @@ class AttemptsController < ApplicationController
 
   def create
     last_attempt = Attempt.where(user_id: attempt_params[:user_id], booth_id: attempt_params[:booth_id]).take
+    the_booth = Booth.find(attempt_params[:booth_id])
 
     if last_attempt.nil?
       @attempt = Attempt.new(attempt_params)
     else
       @attempt = last_attempt
-      if last_attempt.score < attempt_params[:score]
-        @attempt.score = attempt_params[:score]
+      if the_booth.max_attempts > 0
+        @attempt.score += attempt_params[:score] if @attempt.entries < the_booth.max_attempts
+      else
+        @attempt.score = attempt_params[:score] if @attempt.score < attempt_params[:score]
       end
-    end
-    # Refactor for redirecting back to attempt or something + test for record
 
-    #Add support for mobile phone app-keys
+      @attempt.entries += 1
+    end
+
     @attempt = Attempt.new(attempt_params)
 
     respond_to do |format|

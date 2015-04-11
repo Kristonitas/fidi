@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150411013229) do
     t.string   "comment"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "count",      default: 1
+    t.integer  "entries",    default: 1
   end
 
   create_table "booths", force: :cascade do |t|
