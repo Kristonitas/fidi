@@ -43,8 +43,6 @@ class AttemptsController < ApplicationController
       @attempt.entries += 1
     end
 
-    @attempt = Attempt.new(attempt_params)
-
     respond_to do |format|
       if @attempt.save
         format.html { redirect_to info_path, notice: 'attempt was successfully created.' }
